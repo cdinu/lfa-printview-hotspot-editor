@@ -22788,7 +22788,7 @@
 
 	var _constantsActionTypes = __webpack_require__(198);
 
-	var apiURL = 'http://localhost:3000';
+	var apiURL =  false ? 'http://localhost:3000' : '';
 
 	exports.apiURL = apiURL;
 

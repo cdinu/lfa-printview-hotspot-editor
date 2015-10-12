@@ -8,7 +8,7 @@ import {
   API_CHAPTER_REQUEST, API_CHAPTER_SUCCESS, API_CHAPTER_ERROR,
   API_SAVE_REQUEST, API_SAVE_SUCCESS, API_SAVE_ERROR } from '../constants/ActionTypes';
 
-export const apiURL = 'http://localhost:3000';
+export const apiURL = DEBUG ? 'http://localhost:3000' : '';
 
 export function apiChaptersRequest() {
   return { type: API_CHAPTERS_REQUEST };

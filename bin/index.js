@@ -34,7 +34,7 @@ app.get('*', (req, res, next) => {
   res.sendFile(path.join(publicPath, 'index.html'));
 });
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 6453;
 app.listen(port, 'localhost', () => {
   const url = 'http://localhost:' + port;
   console.log('App running on ' + url);
