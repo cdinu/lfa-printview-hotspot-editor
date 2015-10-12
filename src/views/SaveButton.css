@@ -1,0 +1,7 @@
+:local .button {
+  margin-left: 0.5em;
+  width: 2.6em;
+  height: 2.6em;
+  padding: 0.5em;
+  align-self: center;
+}

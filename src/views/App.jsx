@@ -16,7 +16,7 @@ export default React.createClass({
       <Home/>
     </Provider>;
 
-    if (true) {
+    if (DEBUG) {
       return <div>
         {provider}
         <DebugPanel bottom right style={{ maxHeight: '50%', height: '50%' }}>

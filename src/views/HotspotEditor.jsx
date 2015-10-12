@@ -3,8 +3,6 @@ import { connect } from 'react-redux';
 import Select from 'react-select';
 import NumberInput from 'babel!react-number-input';
 
-console.log(NumberInput);
-
 import { updateHotspot } from '../actions/UIActions';
 import styles from './HotspotEditor.css';
 

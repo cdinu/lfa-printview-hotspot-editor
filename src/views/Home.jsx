@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import ChapterSelector from './ChapterSelector';
 import NoChapterSelected from './NoChapterSelected';
 import ChapterView from './ChapterView';
+import SaveButton from './SaveButton';
 
 import { Grid, Row, Col } from 'react-bootstrap';
 
@@ -24,6 +25,7 @@ React.createClass({
         <Col xs={12} className={styles.selectorCol}>
           <span className={styles.selectorLabel}>Chapter:</span>
           <ChapterSelector/>
+          <SaveButton/>
         </Col>
       </Row>
       { selectedChapter ? <ChapterView

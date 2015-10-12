@@ -5,7 +5,8 @@ import stringifyDirtyJSON from 'stringify-object';
 
 import {
   API_CHAPTERS_REQUEST, API_CHAPTERS_SUCCESS, API_CHAPTERS_ERROR,
-  API_CHAPTER_REQUEST, API_CHAPTER_SUCCESS, API_CHAPTER_ERROR } from '../constants/ActionTypes';
+  API_CHAPTER_REQUEST, API_CHAPTER_SUCCESS, API_CHAPTER_ERROR,
+  API_SAVE_REQUEST, API_SAVE_SUCCESS, API_SAVE_ERROR } from '../constants/ActionTypes';
 
 export const apiURL = 'http://localhost:3000';
 
@@ -127,6 +128,68 @@ export function loadChapter(chapter) {
       })
       .catch(error => {
         dispatch(apiChapterError(error, chapter));
+      });
+  };
+}
+
+export function apiSaveRequest() {
+  return { type: API_SAVE_REQUEST };
+}
+
+export function apiSaveError(error) {
+  return { type: API_SAVE_ERROR, error };
+}
+
+export function apiSaveSuccess(response) {
+  return { type: API_SAVE_SUCCESS, response };
+}
+
+export function save() {
+  return (dispatch, getState) => {
+    const state = getState();
+    const postData = state.chapters
+      .filter(ch => ch.get('state') === 'success' && ch.get('dirty'))
+      .map(ch => {
+        const pages = ch.get('pages').toJS();
+        const jadeStart = ch.get('jadeStart');
+        const jadeEnd = ch.get('jadeEnd');
+        const jadeIndent = ch.get('jadeIndent');
+
+        pages.forEach(page => {
+          page.hotspots.forEach(hotspot => {
+            for (const key in hotspot) {
+              const val = hotspot[key];
+              if (typeof val === 'number') {
+                hotspot[key] = Math.round(val * 10000) / 10000;
+              }
+            }
+          });
+        });
+
+        const innerData = stringifyDirtyJSON(pages, { indent: '  ' })
+          .split('\n')
+          .map((line, idx) => idx ? jadeIndent + line : line)
+          .join('\n');
+        return [jadeStart, innerData, jadeEnd].join('');
+      })
+      .toJS();
+
+    dispatch(apiSaveRequest());
+    fetch(apiURL + '/api/chapters', {
+      method: 'post',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(postData),
+    })
+      .then(data => data.json())
+      .then(data => {
+        dispatch(apiSaveSuccess(data));
+      })
+      .catch(error => {
+        console.error(error);
+        dispatch(apiSaveError(error));
       });
   };
 }
