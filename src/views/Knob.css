@@ -1,0 +1,11 @@
+:local .knob {
+  position: absolute;
+  background: #fff;
+  width: 1.2em;
+  height: 1.2em;
+  border: 0.2em solid #2982bb;
+  border-radius: 0.6em;
+  box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.6);
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+}

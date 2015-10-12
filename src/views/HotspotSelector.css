@@ -1,0 +1,16 @@
+:local .container {
+  display: flex;
+  margin-bottom: 0.5em;
+}
+
+:local .selector {
+  flex-grow: 1;
+}
+
+:local .button {
+  margin-left: 0.5em;
+  width: 2.6em;
+  height: 2.6em;
+  padding: 0.5em;
+  align-self: center;
+}

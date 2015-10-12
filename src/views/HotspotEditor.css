@@ -1,0 +1,27 @@
+:local .atom {
+  display: flex;
+  margin-bottom: 0.5em;
+}
+
+:local .atomLabel {
+  align-self: center;
+  margin-right: 0.5em;
+}
+
+:local .atomSelector {
+  flex-grow: 1;
+}
+
+:local .value {
+  display: flex;
+  margin-bottom: 0.5em;
+}
+
+:local .valueLabel {
+  margin-right: 0.5em;
+  align-self: center;
+}
+
+:local .valueInput {
+  flex-grow: 1;
+}

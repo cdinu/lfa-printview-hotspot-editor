@@ -1,0 +1,16 @@
+:local .hotspot {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+:local .hotspot:hover {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+:local .hotspot.active {
+  position: absolute;
+  z-index: 1000;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+

@@ -1,0 +1,10 @@
+ :local .selectorCol {
+   margin-top: 1em;
+   margin-bottom: 1em;
+   display: flex;
+ }
+
+ :local .selectorLabel {
+   align-self: center;
+   margin-right: 1em;
+ }
