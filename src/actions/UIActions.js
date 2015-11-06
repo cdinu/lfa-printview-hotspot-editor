@@ -22,7 +22,7 @@ export function insertHotspot(chapter, page, hotspot, value) {
 }
 
 export function removeHotspot(chapter, page, hotspot) {
-  return { type: REMOVE_HOTSPOT, chapter, page, hotspot};
+  return { type: REMOVE_HOTSPOT, chapter, page, hotspot };
 }
 
 export function moveHotspot(dx, dy) {

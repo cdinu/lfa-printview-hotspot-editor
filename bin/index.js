@@ -30,7 +30,7 @@ app.use('/api', api(projectPath));
 
 app.use(express.static(publicPath));
 
-app.get('*', (req, res, next) => {
+app.get('*', (req, res) => {
   res.sendFile(path.join(publicPath, 'index.html'));
 });
 

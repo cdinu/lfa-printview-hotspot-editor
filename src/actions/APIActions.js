@@ -92,6 +92,10 @@ function jadeToChapter(name, jade) {
     jadeIndent = whitespace;
     pages = parseDirtyJSON(content);
     pages.forEach(page => {
+      if (page.number && !page.image) {
+        page.image = `p${page.number}.jpg`;
+        delete page.number;
+      }
       page.hotspots = page.hotspots || [];
     });
   });

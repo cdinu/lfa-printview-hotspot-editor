@@ -19,11 +19,24 @@ React.createClass({
     const { page, selectedHotspot, selectedPage, selectedChapter, dispatch } = this.props;
     const oldHotspot = page.get('hotspots').get(selectedHotspot).toJS();
     const hotspot = Object.assign({}, oldHotspot, modif);
+    for (const key in hotspot) {
+      if (hotspot[key] === null) {
+        delete hotspot[key];
+      }
+    }
     dispatch(updateHotspot(selectedChapter, selectedPage, selectedHotspot, hotspot));
   },
 
   updateAtom(atom) {
     this.updateHotspot({ atom });
+  },
+
+  updateType(type) {
+    this.updateHotspot({ type: type || null });
+  },
+
+  updateClass(event) {
+    this.updateHotspot({ className: event.target.value || null });
   },
 
   updateValue(key, event) {
@@ -60,6 +73,9 @@ React.createClass({
       </div>;
     });
 
+    const typeOptions = ['video', 'audio', 'text', 'exercise']
+      .map(type => ({ value: type, label: type }));
+
     return <div>
       <div className={styles.atom}>
         <span className={styles.atomLabel}>Atom:</span>
@@ -70,6 +86,28 @@ React.createClass({
           options={atomOptions}
           onChange={this.updateAtom}
           allowCreate
+        />
+      </div>
+      <div className={styles.type}>
+        <span className={styles.typeLabel}>Type:</span>
+        <Select
+          className={styles.typeSelector}
+          placeholder='undefined'
+          value={hotspot.type}
+          options={typeOptions}
+          onChange={this.updateType}
+          clearable
+          allowCreate
+        />
+      </div>
+      <div className={styles.className}>
+        <span className={styles.classNameLabel}>Class:</span>
+        <input
+          type='text'
+          className={styles.classNameSelector}
+          placeholder='undefined'
+          value={hotspot.className}
+          onChange={this.updateClass}
         />
       </div>
       {propEditors}

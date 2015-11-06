@@ -27,8 +27,8 @@ React.createClass({
   render() {
     const { pageNumber, chapter } = this.props;
     const page = chapter.get('pages').get(pageNumber);
-    const pageImageNumber = page.get('number');
-    const pageImage = `${apiURL}/api/files/assets/img/pages/p${pageImageNumber}.jpg`;
+    const pageImagePath = page.get('image');
+    const pageImage = `${apiURL}/api/files/assets/img/pages/${pageImagePath}`;
 
     const hotspots = page.get('hotspots').map((hotspot, idx) => {
       return <Hotspot

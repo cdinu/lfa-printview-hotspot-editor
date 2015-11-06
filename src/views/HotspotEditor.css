@@ -1,14 +1,20 @@
-:local .atom {
+:local .atom,
+:local .className,
+:local .type {
   display: flex;
   margin-bottom: 0.5em;
 }
 
-:local .atomLabel {
+:local .atomLabel,
+:local .classNameLabel,
+:local .typeLabel {
   align-self: center;
   margin-right: 0.5em;
 }
 
-:local .atomSelector {
+:local .atomSelector,
+:local .classNameSelector,
+:local .typeSelector {
   flex-grow: 1;
 }
 
