@@ -73,7 +73,7 @@ React.createClass({
       </div>;
     });
 
-    const typeOptions = ['video', 'audio', 'text', 'exercise']
+    const typeOptions = ['video', 'audio', 'text', 'exercise', 'blank']
       .map(type => ({ value: type, label: type }));
 
     return <div>
