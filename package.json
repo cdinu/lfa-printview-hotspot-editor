@@ -1,7 +1,7 @@
 {
   "name": "lfa-printview-hotspot-editor",
-  "version": "1.0.0",
-  "description": "LFA +prinview visual editor",
+  "version": "1.1.0",
+  "description": "LFA +printview visual editor",
   "main": "server/index.js",
   "bin": {
     "lfa-printview-hotspot-editor": "bin/index.js"
