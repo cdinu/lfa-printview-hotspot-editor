@@ -13,7 +13,15 @@ type State = {
   stringValue: string,
 }
 
-const valueToString = x => (typeof x === 'number' ? x.toString() : '')
+function valueToString(x) {
+  if (typeof x !== 'number') {
+    return '';
+  }
+  return x.toLocaleString('en-US', {
+    maximumFractionDigits: 4,
+    useGrouping: false,
+  });
+}
 
 export default class NumberInput extends Component<Props, State> {
   state = { stringValue: valueToString(this.props.value) }
