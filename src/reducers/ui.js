@@ -13,8 +13,9 @@ export function selectedPage(state = 0, action) {
       return action.value;
     case SELECTED_CHAPTER_CHANGE:
       return 0;
+    default:
+      return state;
   }
-  return state;
 }
 
 export function selectedHotspot(state = null, action) {
@@ -27,6 +28,7 @@ export function selectedHotspot(state = null, action) {
       return null;
     case INSERT_HOTSPOT:
       return action.hotspot;
+    default:
+      return state;
   }
-  return state;
 }

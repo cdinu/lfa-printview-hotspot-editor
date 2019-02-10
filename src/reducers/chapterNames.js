@@ -26,7 +26,7 @@ export default function chapters(state = defaultValue, action) {
         error: action.error,
         chapters: null,
       };
+    default:
+      return state;
   }
-
-  return state;
 }

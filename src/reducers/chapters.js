@@ -52,7 +52,8 @@ export default function chapter(state = Immutable.Map({}), action) {
 
     case API_SAVE_REQUEST:
       return state.map(ch => ch.set('dirty', false));
-  }
 
-  return state;
+    default:
+      return state;
+  }
 }
